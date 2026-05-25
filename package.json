@@ -1,0 +1,32 @@
+{
+  "name": "orbyte",
+  "version": "1.0.0",
+  "description": "Mordern Electronic's Shop",
+  "main": "index.js",
+  "scripts": {
+       "client": "cd Client && npm run dev",
+
+    "gateway": "cd Gatway && go run src/cmd/main.go",
+
+    "services": "concurrently \"npm run auth\" \"npm run product\"",
+
+    "auth": "cd services/auth-service && npm run start:dev",
+    "product": "cd services/product-service && npm run start:dev",
+
+    "dev": "concurrently \"npm run client\" \"npm run gateway\" \"npm run services\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ENG-Oroko/Orbyte.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ENG-Oroko/Orbyte/issues"
+  },
+  "homepage": "https://github.com/ENG-Oroko/Orbyte#readme",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
